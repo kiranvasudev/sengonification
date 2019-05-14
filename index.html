@@ -41,7 +41,23 @@
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+        $(document).ready(function () {
+            var slider = document.getElementById('slider');
+            noUiSlider.create(slider, {
+                start: [20, 80],
+                connect: true,
+                step: 1,
+                range: {
+                    'min': 0,
+                    'max': 100
+                },
+                format: wNumb({
+                    decimals: 0
+                })
+            });
+        });
+    </script>
 </body>
 
 </html>

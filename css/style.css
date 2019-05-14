@@ -1,3 +1,42 @@
-body{
+.rating-container{
+    color:#ffd800;
+}
 
+.seller_trees_status{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.tree_page_img_container{
+    background-image: url('img/seller-profile-big.jpg')
+}
+
+/**** Custom styles for noUiSlider ****/
+.noUi-connect {
+	background: purple;
+}
+.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+	background: purple;
+}
+.noUi-target.noUi-horizontal .noUi-tooltip {
+	background-color: purple;
+}
+
+/**** Custom styles for Range ****/
+input[type=range]::-webkit-slider-thumb {
+  background-color: skyblue;
+}
+input[type=range]::-moz-range-thumb {
+  background-color: skyblue;
+}
+input[type=range]::-ms-thumb {
+  background-color: skyblue;
+}
+/* For the globe and the text inside */
+input[type=range] + .thumb {
+  background-color: blue;
+}
+input[type=range] + .thumb.active .value {
+  color: #fff;
 }

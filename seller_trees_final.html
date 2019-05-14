@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.5/nouislider.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+    <div style="position: absolute;">
+        <div class="row" style="min-height:37vh; position:relative;">
+            <div class="col s12" style="position:relative; padding:0;">
+                <div class="col s12" style="max-height:100%; padding:0;">
+                    <img class="materialboxed" width="100%" src="img/seller-profile-big.jpg">
+                </div>
+                <div class="col s4 center-align right" style="position:relative; bottom: 8vh;">
+                    <div class="col s12">
+                        <img src="img/seller-profile.png" style='object-fit:cover' alt="" width="100px" height="100px"
+                            class="circle responsive-image">
+                        <!-- notice the "circle" class -->
+                    </div>
+                </div>
+                <div class="col s8">
+                    <div class='row'>
+                        <div class="col s6">
+                            <h7>Number of trees</h7>
+                            <div class="col s12">
+                                <i class="small material-icons">ac_unitt</i>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <h7>Good for sale</h7>
+                            <div class="col s12">
+                                <i class="small material-icons">thumb_up</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class="col s6">
+                            <h7>Average life</h7>
+                            <div class="col s12">
+                                <i class="small material-icons">content_cut</i>
+                            </div>
+                        </div>
+                        <div class="col s6">
+                            <h7>Health rate</h7>
+                            <div class="col s12">
+                                <i class="small material-icons">battery_charging_full</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h4 style="margin: 25px 0; padding: 0 10px;">My trees</h4>
+            <ul class="collection">
+                <li class="collection-item avatar valign-wrapper">
+                    <img src="img/tree2.png" alt="" class="circle" style="background:#ffcf21; object-fit: scale-down;">
+                    <div class="col s12">
+                        <span class="title">Sengon</span>
+                        <p>ID: #478569</p>
+                        <p>Planted in November 2010
+                        </p>
+                        <i class="material-icons seller_trees_status">monetization_on</i>
+                    </div>
+                </li>
+                <li class="collection-item avatar valign-wrapper">
+                    <img src="img/tree2.png" alt="" class="circle" style="background:#ffcf21; object-fit: scale-down;">
+                    <div class="col s12">
+                        <span class="title">Sengon</span>
+                        <p>ID: #1</p>
+                        <p>Planted in March 2013
+                        </p>
+                        <i class="material-icons seller_trees_status">monetization_on</i>
+                    </div>
+                </li>
+                <li class="collection-item avatar valign-wrapper">
+                    <img src="img/tree2.png" alt="" class="circle" style="background:#ffcf21; object-fit: scale-down;">
+                    <div class="col s12">
+                        <span class="title">Sengon</span>
+                        <p>ID: #7896</p>
+                        <p>Planted in December 2016
+                        </p>
+                    </div>
+                </li>
+                <li class="collection-item avatar valign-wrapper">
+                    <img src="img/tree2.png" alt="" class="circle" style="background:#ffcf21; object-fit: scale-down;">
+                    <div class="col s12">
+                        <span class="title">Sengon</span>
+                        <p>ID: #96355</p>
+                        <p>Planted in September 2012
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/13.1.5/nouislider.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+        $(document).ready(function () {
+            var slider = document.getElementById('slider');
+            noUiSlider.create(slider, {
+                start: [20, 80],
+                connect: true,
+                step: 1,
+                range: {
+                    'min': 0,
+                    'max': 100
+                },
+                format: wNumb({
+                    decimals: 0
+                })
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
