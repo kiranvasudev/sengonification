@@ -1,47 +1,425 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel = "stylesheet" type = "text/css" href = "css/style.css" />
+  <link rel = "stylesheet" type = "text/css" href = "css/nouislider.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 </head>
 
 
 <body>
-    <div class="container">
-        <!-- Page Content goes here -->
-        <div class="row">
-            <div class='col s12'>
-                <h1>Sengon Tree</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer maximus eros et odio gravida
-                    viverra. Curabitur a nulla at tortor scelerisque vulputate.
-                    Vivamus id finibus purus. Ut eget purus non enim vehicula auctor sed ac leo. Nunc in rhoncus mi.
-                    Etiam a magna nec libero malesuada facilisis.</p>
-            </div>
+  <div class="container">
+    <!-- Page Content goes here -->
+    <div class="row">
+      <div class="col s2" style="max-height: 250px">
+        <img src="img/leeve.png" style="height: 100%" alt="Klick to select Coordinate">
+      </div>
+      <div class="col s10">
+        <h3>Sengonification - Marketplace</h3>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col s12">
+        <div class="col s2" style="border: 2px solid grey">
+          <p>Diameter:</p>
+          <div id="test-slider"></div>
+          <p>Number of Trees:</p>
+          <div id="tree-number-slider"></div>
+          <p>Type:</p>
+          <!-- Dropdown Trigger -->
+          <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Sengon</a>
+
+          <!-- Dropdown Structure -->
+          <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Sengon</a></li>
+
+          </ul>
+          <p>Regions:</p>
+           <img src="img/map.png" style="width: 80%" alt="Klick to select Coordinate">
+
+
+           <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Select Cordi.</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Choose Cordinate</h4>
+        <div id="map" style="height: 300px">
         </div>
-        <div class="row">
-            <div class="col s8 offset-s2">
-                <h1>Todays rate and all the other details here</h1>
-            </div>
-        </div>
-        <div class='row'>
-            <div class="col s12">
-                <div class="col s6">
-                    <h2>Filter here</h2>
-                </div>
-                <div class="col s6">
-                    <h2>Seller details here</h2>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Choose Coordinate</a>
+      </div>
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
+
+           <form action="#">
+             <p>
+               <label>
+                 <input name="group1" type="radio" checked />
+                 <span>max. 30km</span>
+               </label>
+             </p>
+             <p>
+               <label>
+                 <input name="group1" type="radio" />
+                 <span>max. 50km</span>
+               </label>
+             </p>
+ <p>
+   <label>
+     <input class="with-gap" name="group1" type="radio"  />
+     <span>min. 50km</span>
+   </label>
+ </p>
+</form>
+        </div>
+        <div class="col s9">
+          <ul id="menu" class="center-align valign-wrapper" >
+            <li class="col s2 valign-wrapper"><a href="#" class="small-text">Average Diameter </a></li>
+            <li class="col s2 valign-wrapper"><a href="#" class="small-text">Number of Trees</a></li>
+            <li class="col s2 valign-wrapper"><a href="#" class="small-text">Average price per cubic meter</a></li>
+            <li class="col s2 valign-wrapper"><a href="#" class="small-text">Distance</a></li>
+            <li class="col s2 valign-wrapper"><a href="#" class="small-text">Seller Rating</a></li>
+            <li class="col s2"></li>
+          </ul>
+          <div id="treesCard">
+            <div class="col s12">
+
+              <div class="card horizontal">
+                <div class="col s2 valign-wrapper">
+                  <div class="flex-wrapper">
+                    <svg viewBox="0 0 36 36" class="circular-chart circle-orange">
+                      <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                      <text x="18" y="20.35" class="percentage">68,6cm</text>
+                    </svg>
+                  </div>
+                </div>
+                <div class="col s2 valign-wrapper">
+                  <div class="flex-wrapper">
+                    <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+                      <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                      <text x="18" y="20.35" class="percentage">500-950</text>
+                    </svg>
+                  </div>
+                </div>
+                  <div class="col s2 valign-wrapper">
+                    <div class="flex-wrapper">
+                      <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+                        <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                        <text x="18" y="20.35" class="percentage">55 IDR</text>
+                      </svg>
+                    </div>
+                  </div>
+                    <div class="col s2 valign-wrapper">
+                      <div class="flex-wrapper">
+                        <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+                          <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                          <text x="18" y="20.35" class="percentage">12km</text>
+                        </svg>
+                      </div>
+                    </div>
+                      <div class="col s2 valign-wrapper">
+                        <div class="flex-wrapper">
+                          <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <text x="18" y="20.35" class="percentage">100%</text>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="card-action">
+                        <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn modal-trigger" href="#detailPopup">Details</a>
+
+                        <!-- Modal Structure -->
+                        <div id="detailPopup" class="modal">
+                          <div class="modal-content">
+                            <h4>Your Purchase:</h4>
+                            <p>Number of Trees:</p>
+                            <div id="tree-number-slider-popup"></div>
+                            <p>Average diameter per lot: <span style="color: green">68,6 cm</span></p>
+                            <p>Total cubic meter: <span style="color: green">100 cubic meter</span></p>
+                            <p>Price per lot: <span style="color: green">50 IDR</span></p>
+                            <p>Total price: <span style="color: green"> 25000 IDR</span></p>
+                          </div>
+                          <div class="modal-footer">
+                            <a href="#!" class="waves-effect waves-light btn modal-trigger">Purchase</a>
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--end card-->
+
+
+                    <div class="card horizontal">
+                      <div class="col s2 valign-wrapper">
+                        <div class="flex-wrapper">
+                          <svg viewBox="0 0 36 36" class="circular-chart circle-orange">
+                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <text x="18" y="20.35" class="percentage">58,6cm</text>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="col s2 valign-wrapper">
+                        <div class="flex-wrapper">
+                          <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+                            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <text x="18" y="20.35" class="percentage">250-500</text>
+                          </svg>
+                        </div>
+                      </div>
+                        <div class="col s2 valign-wrapper">
+                          <div class="flex-wrapper">
+                            <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+                              <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                              <text x="18" y="20.35" class="percentage">55 IDR</text>
+                            </svg>
+                          </div>
+                        </div>
+                          <div class="col s2 valign-wrapper">
+                            <div class="flex-wrapper">
+                              <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+                                <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                <text x="18" y="20.35" class="percentage">30km</text>
+                              </svg>
+                            </div>
+                          </div>
+                            <div class="col s2 valign-wrapper">
+                              <div class="flex-wrapper">
+                                <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+                                  <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                  <text x="18" y="20.35" class="percentage">100%</text>
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="card-action">
+                              <!-- Modal Trigger -->
+                              <a class="waves-effect waves-light btn modal-trigger" href="#detailPopup">Details</a>
+
+                              <!-- Modal Structure -->
+                              <div id="detailPopup" class="modal">
+                                <div class="modal-content">
+                                  <h4>Details:</h4>
+                                  <div id="map" style="height: 300px">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+<!--end card-->
+
+<div class="card horizontal">
+  <div class="col s2 valign-wrapper">
+    <div class="flex-wrapper">
+      <svg viewBox="0 0 36 36" class="circular-chart circle-orange">
+        <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" class="percentage">50,6cm</text>
+      </svg>
+    </div>
+  </div>
+  <div class="col s2 valign-wrapper">
+    <div class="flex-wrapper">
+      <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+        <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" class="percentage">400-800</text>
+      </svg>
+    </div>
+  </div>
+    <div class="col s2 valign-wrapper">
+      <div class="flex-wrapper">
+        <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+          <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          <text x="18" y="20.35" class="percentage">57 IDR</text>
+        </svg>
+      </div>
+    </div>
+      <div class="col s2 valign-wrapper">
+        <div class="flex-wrapper">
+          <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.35" class="percentage">50km</text>
+          </svg>
+        </div>
+      </div>
+        <div class="col s2 valign-wrapper">
+          <div class="flex-wrapper">
+            <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+              <path class="circle" stroke-dasharray="70, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <text x="18" y="20.35" class="percentage">70%</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card-action">
+          <!-- Modal Trigger -->
+          <a class="waves-effect waves-light btn modal-trigger" href="#detailPopup">Details</a>
+
+          <!-- Modal Structure -->
+          <div id="detailPopup" class="modal">
+            <div class="modal-content">
+              <h4>Details:</h4>
+              <div id="map" style="height: 300px">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--end card-->
+
+<div class="card horizontal">
+  <div class="col s2 valign-wrapper">
+    <div class="flex-wrapper">
+      <svg viewBox="0 0 36 36" class="circular-chart circle-orange">
+        <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" class="percentage">70,6cm</text>
+      </svg>
+    </div>
+  </div>
+  <div class="col s2 valign-wrapper">
+    <div class="flex-wrapper">
+      <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+        <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" class="percentage">420-800</text>
+      </svg>
+    </div>
+  </div>
+    <div class="col s2 valign-wrapper">
+      <div class="flex-wrapper">
+        <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+          <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          <text x="18" y="20.35" class="percentage">42 IDR</text>
+        </svg>
+      </div>
+    </div>
+      <div class="col s2 valign-wrapper">
+        <div class="flex-wrapper">
+          <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.35" class="percentage">42km</text>
+          </svg>
+        </div>
+      </div>
+        <div class="col s2 valign-wrapper">
+          <div class="flex-wrapper">
+            <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+              <path class="circle" stroke-dasharray="95, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <text x="18" y="20.35" class="percentage">95%</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card-action">
+          <!-- Modal Trigger -->
+          <a class="waves-effect waves-light btn modal-trigger" href="#detailPopup">Details</a>
+
+          <!-- Modal Structure -->
+          <div id="detailPopup" class="modal">
+            <div class="modal-content">
+              <h4>Details:</h4>
+              <div id="map" style="height: 300px">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--end card-->
+
+<div class="card horizontal">
+  <div class="col s2 valign-wrapper">
+    <div class="flex-wrapper">
+      <svg viewBox="0 0 36 36" class="circular-chart circle-orange">
+        <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" class="percentage">60,6cm</text>
+      </svg>
+    </div>
+  </div>
+  <div class="col s2 valign-wrapper">
+    <div class="flex-wrapper">
+      <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+        <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" class="percentage">450-800</text>
+      </svg>
+    </div>
+  </div>
+    <div class="col s2 valign-wrapper">
+      <div class="flex-wrapper">
+        <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+          <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          <text x="18" y="20.35" class="percentage">50 IDR</text>
+        </svg>
+      </div>
+    </div>
+      <div class="col s2 valign-wrapper">
+        <div class="flex-wrapper">
+          <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+            <path class="circle" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <text x="18" y="20.35" class="percentage">22km</text>
+          </svg>
+        </div>
+      </div>
+        <div class="col s2 valign-wrapper">
+          <div class="flex-wrapper">
+            <svg viewBox="0 0 36 36" class="circular-chart circle-orange valign-wrapper">
+              <path class="circle" stroke-dasharray="80, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <text x="18" y="20.35" class="percentage">80%</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card-action">
+          <!-- Modal Trigger -->
+          <a class="waves-effect waves-light btn modal-trigger" href="#detailPopup">Details</a>
+
+          <!-- Modal Structure -->
+          <div id="detailPopup" class="modal">
+            <div class="modal-content">
+              <h4>Details:</h4>
+              <div id="map" style="height: 300px">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--end card-->
+
+
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/9.2.0/nouislider.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
 
-</html>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+      </body>
+
+      </html>
